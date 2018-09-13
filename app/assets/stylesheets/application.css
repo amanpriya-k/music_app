@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+ /* footer {
+   flex: right;
+ } */
+
+ body {
+   font-family: 'Advent Pro';
+   text-transform: lowercase;
+   padding: 2px;
+ }
+
+ label {
+   font-weight: bold;
+ }
+
+ input[type=submit] {
+   padding: 5px;
+   background-color: gray;
+   font-family: 'Advent Pro';
+   font-weight: bold;
+   font-size: 20px;
+ }
+
+ .logged_in {
+   font-size: 13px;
+ }
+
+ .topnav {
+   padding: 10px;
+   color: white;
+   background-color: teal;
+   overflow: hidden;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+ }

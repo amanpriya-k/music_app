@@ -1,0 +1,20 @@
+<% if type == :login %>
+  <% action_url = session_url %>
+  <% button_val = "Log me in!" %>
+<% elsif type == :signup %>
+  <% action_url = users_url %>
+  <% button_val = "Sign me up!" %>
+<% end %>
+
+
+<form action="<%= action_url %>" method="post">
+  <%= auth_helper %>
+
+  <label for="email">Enter your email:</label>
+  <input type="text" name="user[email]" />
+
+  <label for="password">Choose your password:</label>
+  <input type="password" name="user[password]" />
+
+  <input type="submit" value= <%= button_val %> />
+</form>

@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def is_password?(pw)
-    BCrypt.Password.new(self.password_digest).is_password?(pw)
+    BCrypt::Password.new(self.password_digest).is_password?(pw)
   end
 
   def ensure_session_token
@@ -40,6 +40,8 @@ class User < ApplicationRecord
 
   def reset_session_token!
     self.session_token = User.generate_session_token
+    self.save!
+    self.session_token
   end
 
 end

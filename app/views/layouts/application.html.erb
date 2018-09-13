@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicApp</title>
+    <title>MyMusic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="topnav">
+        <h1> MyMusic </h1>
+        <% if logged_in? %>
+          <form action="/session" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+            <%= auth_helper %>
+            <input type="submit" value="Log out!">
+          </form>
+          <form action=" <%= user_url(current_user) %> " method="post">
+            <%= auth_helper %>
+            <input type="submit" value="Home page!">
+          </form>
+        <% else %>
+          <form action=" <%= new_user_url %> " method="post">
+            <input type="hidden" name="_method" value="get"/>
+            <%= auth_helper %>
+            <input type="submit" value="Sign up!">
+          </form>
+          <form action=" <%= new_session_url %> " action="post">
+            <%= auth_helper %>
+            <input type="submit" value="Log in!">
+          </form>
+        <% end %>
+        <div class="logged_in">
+          <% if logged_in? %>
+            <h1> welcome, <%= current_user.email %> </h1>
+          <% else %>
+            <h1> Welcome. </h1>
+          <% end %>
+        </div>
+      </div>
+
+    </header>
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <li>
+            <%= error %>
+          </li>
+        <% end %>
+      <% end %>
+
     <%= yield %>
+
+    <footer>
+    </footer>
   </body>
 </html>

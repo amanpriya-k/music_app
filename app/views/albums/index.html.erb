@@ -1,0 +1,24 @@
+<h1> all albums </h1>
+
+
+<% @albums.each do |album| %>
+  <ul>
+    <li>
+      <a href=" <%= album_url(album) %> "><h2><%= album.title %> (<%= album.band.name %>, <%= album.year %>)</h2></a>
+    </li>
+  </ul>
+<% end %>
+
+
+<br /><br /><br /><br />
+
+<!-- how to do content for footer?? -->
+
+<% content_for :footer do %>
+  <h3>add new albums through individual band pages!</h3>
+  <form action=" <%= bands_url %> " method="post">
+    <input type="hidden" name="_method" value="get">
+    <%= auth_helper %>
+    <input type="submit" value="see all bands">
+  </form>
+<% end %>

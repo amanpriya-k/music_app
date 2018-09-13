@@ -1,0 +1,35 @@
+<h1> <%= @album.title %> </h1>
+
+<label for="band">band: <%= @album.band.name %> </label>
+<br />
+<label for="title">title: <%= @album.title %></label>
+
+<br />
+<label for="year">year: <%= @album.year %> </label>
+
+<br />
+<label for="recorded">recording:
+  <%= @album.studio_recorded ? "studio" : "live" %>
+ </label>
+
+<br />  <br />
+<br>
+<form action=" <%= band_url(@album.band) %> " method="post">
+  <input type="hidden" name="_method" value="get">
+  <%= auth_helper %>
+  <input type="submit" value="see band">
+</form>
+
+<br>
+<form action=" <%= edit_album_url(@album) %> " method="post">
+  <input type="hidden" name="_method" value="get">
+  <%= auth_helper %>
+  <input type="submit" value="edit album">
+</form>
+
+<br>
+<form action=" <%= album_url(@album) %> " method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= auth_helper %>
+  <input type="submit" value="delete album">
+</form>

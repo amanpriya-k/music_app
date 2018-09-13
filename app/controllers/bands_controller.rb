@@ -1,12 +1,15 @@
 class BandsController < ApplicationController
 
   def index
+    # debugger
+    @albums = Album.all
     @bands = Band.all
     render :index
   end
 
   def new
     @band = Band.new
+    @bands = Band.all
     render :new
   end
 

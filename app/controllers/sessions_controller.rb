@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   def destroy # <-- CLOSE SESSION
     if logged_in?
       logout!
-      render :new
+      redirect_to new_session_url
     else
       flash.now[:errors] = "Logout error"
     end

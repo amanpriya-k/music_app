@@ -1,1 +1,12 @@
-<h3><%= current_user.email %>, this is your home page :) </h3>
+<h2>hey <%= current_user.email %>! this is your home page :-) </h2>
+
+
+<!-- put in footer -->
+<br /><br /><br />
+
+
+<form action=" <%= bands_url %> " action="post">
+  <input type="hidden" name="_method" value="get"/>
+  <%= auth_helper %>
+  <input type="submit" value="see all bands!">
+</form>

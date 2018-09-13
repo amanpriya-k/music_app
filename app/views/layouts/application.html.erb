@@ -17,22 +17,30 @@
           <form action="/session" method="post">
             <input type="hidden" name="_method" value="delete"/>
             <%= auth_helper %>
-            <input type="submit" value="Log out!">
+            <input type="submit" value="log out!">
           </form>
           <form action=" <%= user_url(current_user) %> " method="post">
             <%= auth_helper %>
-            <input type="submit" value="Home page!">
+            <input type="hidden" name="_method" value="get"/>
+            <input type="submit" value="home page!">
           </form>
         <% else %>
+
           <form action=" <%= new_user_url %> " method="post">
             <input type="hidden" name="_method" value="get"/>
+            <input type="hidden" name="test" value="banana">
             <%= auth_helper %>
-            <input type="submit" value="Sign up!">
+            <input type="submit" value="sign up!">
           </form>
+
+
+
           <form action=" <%= new_session_url %> " action="post">
-            <%= auth_helper %>
-            <input type="submit" value="Log in!">
+            <input type="hidden" name="_method" value="get"/>
+            <input type="submit" value="log in!">
           </form>
+
+
         <% end %>
         <div class="logged_in">
           <% if logged_in? %>
@@ -55,6 +63,8 @@
     <%= yield %>
 
     <footer>
+      <%= yield :footer %>
+
     </footer>
   </body>
 </html>

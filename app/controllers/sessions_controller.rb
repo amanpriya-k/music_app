@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create # <-- NEW SESSION
+    # debugger
     email = params[:user][:email]
     password = params[:user][:password]
     @user = User.find_by_credentials(email, password)

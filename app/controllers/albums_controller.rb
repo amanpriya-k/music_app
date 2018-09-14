@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  before_action :require_login
 
   def index
     @albums = Album.all
@@ -28,7 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = album.find_by(id: params[:id])
+    @album = Album.find_by(id: params[:id])
     if @album.update(album_params)
       redirect_to album_url(@album)
     else

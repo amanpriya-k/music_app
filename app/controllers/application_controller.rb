@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def require_login
+    return if logged_in?
+    redirect_to new_session_url
+  end
+
 end

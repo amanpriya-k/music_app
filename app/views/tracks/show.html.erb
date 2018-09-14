@@ -1,0 +1,45 @@
+<h1> <%= @track.title %> </h1>
+
+<label for="band">band: <%= @track.album.band.name %> </label>
+<br /><br />
+<label for="album">album: <%= @track.album.title %></label>
+
+<br /><br />
+<label for="year">year: <%= @track.album.year %> </label>
+
+<br /><br />
+<label for="recorded">type:
+  <%= @track.regular ? "regular" : "bonus" %>
+</label>
+
+
+<% unless @track.lyrics.nil? %>
+<br /><br />
+<label for="lyrics">lyrics:
+<br />
+<pre class="lyrics"><%= ugly_lyrics(@track.lyrics) %></pre>
+<% end %>
+
+<br /><br />
+<%= render 'notes/form', track: @track %>
+<br /><br />
+<% @track.notes.each do |note| %>
+ <ul class="notes">
+     <%= render 'notes/note', note: note %>
+     <br />
+ </ul>
+<% end %>
+
+ <br> <br> <br>
+
+ <form action=" <%= edit_track_url(@track) %> " method="post">
+   <input type="hidden" name="_method" value="get">
+   <%= auth_helper %>
+   <input type="submit" value="edit track info">
+ </form>
+ <br> <br>
+ <form action=" <%= album_url(@track.album) %> " method="post">
+   <input type="hidden" name="_method" value="get">
+   <%= auth_helper %>
+   <input type="submit" value="back to album tracklist">
+ </form>

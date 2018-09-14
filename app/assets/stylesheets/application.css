@@ -24,6 +24,11 @@
    padding: 2px;
  }
 
+ .notes {
+   color: teal;
+   /* text-align: right; */
+ }
+
  h1 {
   font-size: 35px;
  }
@@ -34,12 +39,27 @@
  }
 
  input[type=submit] {
+   color: white;
    padding: 5px;
    background-color: #FF5733;
    font-family: 'Advent Pro';
    font-weight: bold;
-   font-size: 20px;
+   font-size: 15px;
  }
+
+ .lyrics {
+   padding: 20px;
+   color: #FF5733;
+   font-family: 'Advent Pro';
+   font-size: 17px;
+ }
+
+ /* .small_button {
+   padding: 0px;
+   color: #FF5733;
+   background-color: white
+   font-family: 'Advent Pro';
+ } */
 
  .logged_in {
    font-size: 13px;

@@ -12,7 +12,30 @@
   <%= @album.studio_recorded ? "studio" : "live" %>
  </label>
 
+ <br /><br /><br />
+ <label for="tracks">tracklist:
+ <% @album.tracks.each do |track| %>
+   <ul>
+     <li>
+       <a href=" <%= track_url(track) %> "><p><%= track.title %></p></a>
+     </li>
+   </ul>
+ <% end %>
+
+
+
+<!-- buttons -->
+
+
 <br />  <br />
+
+<br>
+<form action=" <%= new_album_track_url(@album) %> " method="post">
+  <input type="hidden" name="_method" value="get">
+  <%= auth_helper %>
+  <input type="submit" value="add track to album">
+</form>
+
 <br>
 <form action=" <%= band_url(@album.band) %> " method="post">
   <input type="hidden" name="_method" value="get">

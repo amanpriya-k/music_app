@@ -1,0 +1,11 @@
+<h3> "<%= note.body %>" -- by <%= note.user.email %> on <%= note.created_at.to_date %> </h3>
+
+<% if note.user.id == current_user.id %>
+
+<form action=" <%= note_url(note) %> " method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= auth_helper %>
+  <input style="background-color: white; color: #FF5733" type="submit" value="delete my comment">
+</form>
+
+<% end %>

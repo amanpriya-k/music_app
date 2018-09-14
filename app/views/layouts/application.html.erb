@@ -19,7 +19,7 @@
             <%= auth_helper %>
             <input type="submit" value="log out!">
           </form>
-          <form action=" <%= user_url(current_user) %> " method="post">
+          <form action=" <%= bands_url %> " method="post">
             <%= auth_helper %>
             <input type="hidden" name="_method" value="get"/>
             <input type="submit" value="home page!">

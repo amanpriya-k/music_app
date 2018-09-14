@@ -13,4 +13,16 @@ Rails.application.routes.draw do
 
   resources :albums, only: [:index,:create, :edit, :show, :update, :destroy]
 
+  resources :albums do
+    resources :tracks, only: [:new]
+  end
+
+  resources :tracks, only: [:create, :edit, :show, :update, :destroy]
+
+  resources :tracks do
+    resources :notes, only: [:new]
+  end
+
+  resources :notes, only: [:create, :destroy]
+
 end

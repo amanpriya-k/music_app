@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       # <-- LOG THEM IN
       login!(@user)
       # <-- REDIRECT TO THEIR HOME/SHOW PAGE
-      redirect_to user_url(@user)
+      redirect_to bands_url
     else
       flash.now[:errors] = ["Invalid credentials"]
       render :new

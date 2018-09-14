@@ -12,7 +12,7 @@
   <body>
     <header>
       <div class="topnav">
-        <h1> MyMusic </h1>
+        <h1> MyMusic♫ </h1>
         <% if logged_in? %>
           <form action="/session" method="post">
             <input type="hidden" name="_method" value="delete"/>
@@ -44,7 +44,7 @@
         <% end %>
         <div class="logged_in">
           <% if logged_in? %>
-            <h1> welcome, <%= current_user.email %> </h1>
+            <h1> welcome, <%= current_user.email %> ☆  </h1>
           <% else %>
             <h1> Welcome. </h1>
           <% end %>

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     # debugger
     if @user
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to bands_url
     else
       flash.now[:errors] = ["Invalid credentials"]
       render :new
